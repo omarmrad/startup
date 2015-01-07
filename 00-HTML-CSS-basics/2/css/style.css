@@ -1,0 +1,92 @@
+body{
+	font-size: 14px;
+	font-family: verdana;  
+}
+
+/*html5 semantics tags */
+article, aside, figure, footer, header, hgroup, menu, nav, section 
+{ display: block; }
+
+/* light css reset */
+* { margin : 0; padding : 0; }
+h2, h3, h4, h5, p, ul, ol  { margin : 0 20px; padding : .5em 0; }
+img { border: 0px;}
+
+/* =page level container */
+#pageContainer {
+    margin: 0px auto 0px auto;
+	width: 960px;
+}
+
+#pageHeader {
+    margin:0px auto 0px auto;
+    width:960px;
+    height:82px;
+    position:relative;
+    background: #58FD5D;
+    text-align: center;
+}
+
+#contentContainer {
+    margin: 0px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    min-height: 500px;
+}
+
+#pageFooter {
+    margin: 0px auto;
+    padding-bottom: 20px;
+	width: 960px;
+	position: relative;
+	background: #58FD5D;
+	text-align: center;
+}
+
+/* Clear Floated Elements */
+.clearfix:before, .clearfix:after {content: "\0020"; 
+display: block; height: 0; visibility: hidden;}
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+#pageNav, 
+#pageAside{
+	display: block;
+	width: 10%;
+	float: left;
+	background: #58FD5D;
+}
+
+#pageSection{
+	width: 79%;
+	float: left;
+}
+
+.header{
+	font-size: 46px;
+}
+
+.footer{
+	font-size: 10px;
+}
+
+.content{
+	font-size: 14px;
+}
+
+.navigation{
+	font-size: 12px;
+}
+
+.sidebar{
+	font-size: 10px;
+}
+
+[class$="r"] {
+ background-color: magenta;
+ color: white;
+}
+
+[class*="a"]:not([class$="r"]) {
+ background-color: blue;
+}
