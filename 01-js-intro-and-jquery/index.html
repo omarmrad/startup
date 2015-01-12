@@ -1,0 +1,61 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>My todo list</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script type="text/javascript">
+			$( document ).ready(function() {
+				$("section").fadeIn();
+				$("section").fadeIn("slow");
+				$("section").fadeIn(9000);
+				$(".alias").focus();
+				$("#button-get").click(function(){
+					$.post( "http://bootcamp.aws.af.cm/welcome/yourname", function(data) {
+					  $("section").text(data.response);
+					}, "json")
+					  .done(function() {
+					    alert( "second success" );
+					  })
+					  .fail(function() {
+					    alert( "error" );
+					  })
+					  .always(function() {
+					    alert( "finished" );
+					});
+				});
+				$("#button-spotify").click(function(){
+					$.get( "https://api.spotify.com/v1/search?q="+$(".alias").val()+"&type=album")
+						.done(function( data ) {
+							$("#result").html("");
+							$("#result").removeClass("error");
+							$("input.alias").removeClass("error");
+							$.each(data.albums.items, function(key, value){
+								var html = "<div class='item-result'><p>Name:"+value.name+"</p>";
+								html = html + "<p>Type:"+value.type+"</p>";
+								html = html + "<img src='"+value.images[0].url+"' />";
+								html = html + "<br><a href='"+value.external_urls.spotify+"'>url</a></div>"; 
+								$("#result").html($("#result").html() + html );
+							});
+
+					 	},"json")
+						.fail(function(){
+							$("input.alias").addClass("error");
+							$("#result").html("Error en la busqueda");
+							$("#result").addClass("error");
+						});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<section>Hello world</section>
+		<input type="text" class="alias" name="search" />
+		<button id="button-get">Button</button>
+		<button id="button-spotify">Spotify</button>
+		<section id="result"></section>
+	</body>
+	</html>
+

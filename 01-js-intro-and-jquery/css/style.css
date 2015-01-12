@@ -1,0 +1,34 @@
+.main{
+	border: 1px solid #098765;
+	margin: 0;
+	height: auto;
+}
+
+.display-off{
+	display: none;
+}
+
+section{
+	display: none;
+}
+
+.item-result{
+	border: 1px solid;
+	margin: 3px;
+	display: block;
+	width: 300px;
+	font-family: verdana;
+	font-size: 12px;
+	float: left;
+	height: 300px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.item-result img{
+	width: 200px;
+}
+
+.error{
+	border: 1px solid red;
+}
